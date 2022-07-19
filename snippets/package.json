@@ -1,0 +1,28 @@
+{
+  "name": "mysnippets",
+  "engines": {
+    "vscode": "^1.11.0"
+  },
+  "contributes": {
+    "snippets": [
+      {
+        "language": [
+          "tex"
+        ],
+        "path": "./tex.json"
+      },
+      {
+        "language": [
+          "obsidian"
+        ],
+        "path": "./obsidian.json"
+      },
+      {
+        "language": [
+          "text"
+        ],
+        "path": "./text.json"
+      }
+    ]
+  }
+}
