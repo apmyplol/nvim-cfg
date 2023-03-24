@@ -31,7 +31,6 @@ require "main.fold-preview"
 require "main.todo-comments"
 require "main.jupyter"
 require "main.clipboard-image"
-require "main.obsidian"
 require "main.others"
 
 -- TODO: check gisigns vs vgit

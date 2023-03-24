@@ -3,7 +3,7 @@ if not status_ok then
     return
 end
 
-local obsidian_hook = require("main.obsidian").keymaps.hook
+local obsidian_hook = require("obsidian").keymaps.hook
 
 local hook_function = function()
   if workspaces.name() == "wiki" then

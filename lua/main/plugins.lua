@@ -173,6 +173,8 @@ return packer.startup(function(use)
     -- better quickfix list
     use { "kevinhwang91/nvim-bqf", ft = "qf" }
 
+    use "/home/afa/.config/nvim/my_plugins/obsidian"
+
     if PACKER_BOOTSTRAP then
         require("packer").sync()
     end
