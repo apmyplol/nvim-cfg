@@ -1,0 +1,3 @@
+[submodule "my_plugins/obsidian"]
+	path = my_plugins/obsidian
+	url = https://github.com/apmyplol/nvim-obsidian-stuff.git
