@@ -1,4 +1,10 @@
 vim.cmd "let b:current_syntax=''"
+
+-- TODO: Mittelwertsatz highlighing falsch wenn in Zeile 10 keine ^Reference ist
+-- syntax für liste
+-- stichpunkte
+-- Wenn man enter in einer Liste drückt -> neue Zeile fängt mit "-" an
+
 ---------------------------------- obsidian syntax stuff ------------------------------------
 
 -- define keywords to make adding highlight groups easier
@@ -69,7 +75,7 @@ end
 
 -- callout header line, header (the thing that defines the type of callout) and header "title"
 vim.cmd "syntax match ObsCalloutHead /\\[[^\\]]*/me=e+2,he=e+2 contains=@ObsCalloutIcons contained conceal"
-vim.cmd [[syntax match ObsCalloutTitle /[^]+-]\+$/ contained]]
+vim.cmd [[syntax match ObsCalloutTitle /[^]+-]\+$/ contains=@mathjax contained]]
 vim.cmd [[syntax match ObsCalloutHeadline /^>\s\[.*/ contains=ObsCalloutHead,ObsCalloutTitle contained]]
 keywords[#keywords+1] = "ObsCalloutTitle"
 keywords[#keywords+1] = "ObsCalloutHeadline"

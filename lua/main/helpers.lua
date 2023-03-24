@@ -21,6 +21,8 @@ M.inmath = function()
         or pos:find "texMathZoneTI"
         or pos:find "texMathDelimZimeTD"
         or pos:find "texMathZoneTD"
+        or pos:find "MathjaxInline"
+        or pos:find "MathjaxBlock"
     )
 end
 

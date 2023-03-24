@@ -10,6 +10,7 @@ local obsidian = require "main.obsidian.obsidian"
 local init_autocmd = function()
     vim.opt.shiftwidth = 3
     vim.opt.tabstop = 3
+    vim.cmd("set syntax=obsidian")
     -- vim.api.nvim_create_autocmd({"BufWinEnter" }, {
     --     pattern = "*.md",
     --     callback = function()
