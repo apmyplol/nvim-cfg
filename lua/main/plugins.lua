@@ -92,7 +92,7 @@ return packer.startup(function(use)
 
     use "lewis6991/gitsigns.nvim" -- for git information, added/deleted stuff and see changes while file is opened
 
-    use { "lervag/vimtex", ft = { "tex", "vimwiki" } } -- latex support
+    use { "lervag/vimtex", ft = { "tex", "obsidian" } } -- latex support
 
     -- never fotget keybindings again (hopefully)
     use "folke/which-key.nvim"
@@ -107,7 +107,7 @@ return packer.startup(function(use)
     -- aahh ich mag das plugin iwie nicht
     -- use {'iamcco/markdown-preview.nvim', run=":call mkdp#util#install()" , ft={'markdown'}}
     --use "plasticboy/vim-markdown"
-    use { "vimwiki/vimwiki", ft = { "markdown", "vimwiki" } }
+    -- use { "vimwiki/vimwiki", ft = { "markdown", "vimwiki" } }
     use { "ekickx/clipboard-image.nvim" }
     -- use "ixru/nvim-markdown"
     -- use "renerocksai/telekasten.nvim"

@@ -19,15 +19,3 @@ local opts = {
 for index, value in pairs(opts) do
     vim.g["vimwiki_" .. index] = value
 end
-
-vim.api.nvim_exec(
-    [[
-" block $$...$$
-syn region math start=/\$\$/ end=/\$\$/
-" inline math
-syn match math '\$[^$].\{-}\$'
-" actually highlight the region we defined as "math"
-hi link math Statement
-]],
-    false
-)
