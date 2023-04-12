@@ -68,6 +68,6 @@ ls.add_snippets(
 
 ls.filetype_extend("latex", { "tex", "obsidian" })
 ls.filetype_extend("markdown", { "tex", "obsidian", "text" })
-ls.filetype_extend("vimwiki", { "obsidian", "tex", "text" })
+ls.filetype_extend("obsidian", { "obsidian", "tex", "text" })
 ls.filetype_extend("tex", { "obsidian" })
 ls.filetype_extend("html", { "text", "tex" })
