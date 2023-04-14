@@ -473,7 +473,28 @@ local complex = {
         end, { 1 }),
         t "}",
     }),
+    s_mathonly({
+        trig = "(%a)//(%a)",
+        name = "Algebra Quotient",
+        dscr = "A/_{B}",
+        regTrig = true,
+        hidden = true,
+        snippetType = "autosnippet",
+    }, {
+        f(function(_, snip) return snip.captures[1] .. "/_{" .. snip.captures[2] .. "}" end),
+    }),
+    s_mathonly({
+        trig = "(%a)\\\\(%a)",
+        name = "Algebra Quotient",
+        dscr = "A\\B",
+        regTrig = true,
+        hidden = true,
+        snippetType = "autosnippet",
+    }, {
+        f(function(_, snip) return "_{" .. snip.captures[1] .. "}\\backslash " .. snip.captures[2] end),
+    }),
 }
+
 
 local simple = {
     s_mathonly( "root", { t "\\sqrt[", i(1), t "]{", i(2), t "}", i(3), t "" } ),
