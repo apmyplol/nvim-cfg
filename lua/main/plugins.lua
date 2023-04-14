@@ -153,7 +153,7 @@ return packer.startup(function(use)
     }
 
     -- workspaces
-    use "natecraddock/workspaces.nvim"
+    use "apmyplol/workspaces.nvim"
 
     -- fancy todo highlights
     use { "folke/todo-comments.nvim", requires = "nvim-lua/plenary.nvim" }
