@@ -79,8 +79,8 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
             }
         )
         which_key.register({
-            ["<cr>"] = { "<cmd>call jukit#send#section()<cr>", "send cell to jupyter" },
-        }, { mode = "v" })
+            ["<cr>"] = { ":<C-U>call jukit#send#selection()<CR>", "send selection to jupyter" },
+        }, { mode = "v", silent=true, noremap=true,  nowait=true })
     end,
 })
 
@@ -91,7 +91,7 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
 -- vim.cmd("let g:magma_show_mimetype_debug = v:true")
 -- vim.g.jupytext_fmt = "py"
 vim.g.jukit_hist_use_ueberzug = 0
-vim.g.jukit_shell_cmd = "source ~/nlp && cd " .. vim.fn.getcwd() ..  " && ipython3"
+vim.g.jukit_shell_cmd = "source ~/sml && cd " .. vim.fn.getcwd() ..  " && ipython3"
 -- use which-key to make bindings myself
 vim.g.jukit_mappings = 0
 -- vim.g.jukit_ueberzug_use_cached = 1
