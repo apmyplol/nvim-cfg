@@ -18,11 +18,12 @@ M.inmath = function()
         or pos:find "texSnip"
         or pos:find "textSnipTEX"
         or pos:find "texMathDelimZimeTI"
-        or pos:find "texMathZoneTI"
+        -- or pos:find "texMathZoneTI"
         or pos:find "texMathDelimZimeTD"
-        or pos:find "texMathZoneTD"
+        -- or pos:find "texMathZoneTD"
         or pos:find "MathjaxInline"
         or pos:find "MathjaxBlock"
+        or pos:find "texMathZone"
     )
 end
 
