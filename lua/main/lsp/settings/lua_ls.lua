@@ -1,5 +1,4 @@
 return {
-	settings = {
 
 		Lua = {
 			diagnostics = {
@@ -23,6 +22,10 @@ return {
 					["/usr/share/awesome/lib"] = true,
 				},
 			},
+      -- semantic = {
+      --   annotation = false,
+      --   enable = false,
+      --   variable = false
+      -- },
 		},
-	},
 }
