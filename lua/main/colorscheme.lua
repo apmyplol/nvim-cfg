@@ -6,14 +6,16 @@
 --   return
 -- end
 
-local colors = require("colors.evatheme")
+vim.cmd("colorscheme tokyonight")
 
--- colorschemes generally want to do this
-vim.cmd("highlight clear")
-vim.cmd("set t_Co=256")
-vim.cmd("let g:colors_name='evatheme'")
-
--- apply highlight groups
-for group, attrs in pairs(colors) do
-  vim.api.nvim_set_hl(0, group, attrs)
-end
+-- local colors = require("colors.evatheme")
+--
+-- -- colorschemes generally want to do this
+-- vim.cmd("highlight clear")
+-- vim.cmd("set t_Co=256")
+-- vim.cmd("let g:colors_name='evatheme'")
+--
+-- -- apply highlight groups
+-- for group, attrs in pairs(colors) do
+--   vim.api.nvim_set_hl(0, group, attrs)
+-- end

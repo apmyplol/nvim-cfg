@@ -81,7 +81,8 @@ local ec = evacolors
 -- LSP/Linters mistakenly show `undefined global` errors in the spec, they may
 -- support an annotation like the following. Consult your server documentation.
 ---@diagnostic disable: undefined-global
-local theme = lush(function()
+local theme = lush(function(injected_functions)
+  local sym = injected_functions.sym
     return {
         -- The following are the Neovim (as of 0.8.0-dev+100-g371dfb174) highlight
         -- groups, mostly used for styling UI elements.
