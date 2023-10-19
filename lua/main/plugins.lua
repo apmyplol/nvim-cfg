@@ -103,6 +103,7 @@ return packer.startup(function(use)
     use "p00f/nvim-ts-rainbow" -- color for parenthesis
     use "nvim-treesitter/playground" -- for developing color scheeemeee yeee
     use "folke/tokyonight.nvim"
+    use "navarasu/onedark.nvim"
 
     -- aahh ich mag das plugin iwie nicht
     -- use {'iamcco/markdown-preview.nvim', run=":call mkdp#util#install()" , ft={'markdown'}}
@@ -174,6 +175,9 @@ return packer.startup(function(use)
     use { "kevinhwang91/nvim-bqf", ft = "qf" }
 
     use "/home/afa/.config/nvim/my_plugins/obsidian"
+
+    -- java stuff
+    use 'mfussenegger/nvim-jdtls'
 
     if PACKER_BOOTSTRAP then
         require("packer").sync()

@@ -58,10 +58,10 @@ keymap("v", "W", "b", opts)
 keymap("n", "E", "ge", opts)
 keymap("v", "E", "ge", opts)
 
-keymap("n", ",", ";", opts)
-keymap("v", ",", ";", opts)
-keymap("n", ";", ",", opts)
-keymap("v", ";", ",", opts)
+-- keymap("n", ",", ";", opts)
+-- keymap("v", ",", ";", opts)
+-- keymap("n", ";", ",", opts)
+-- keymap("v", ";", ",", opts)
 
 -- Visual --
 -- Stay in indent mode
