@@ -191,6 +191,7 @@ local mappings = {
             "reload entire nvim config"
         },
     },
+  G = {"<cmd>lua require('main.FOP').gradle()<cr>", "execute gradle task"}
 }
 
 local vopts = {
