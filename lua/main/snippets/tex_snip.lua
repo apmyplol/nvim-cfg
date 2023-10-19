@@ -63,7 +63,7 @@ local complex = {
 
     -- Snippets for math text
     s_mathonly({
-        trig = "vec(%d)(%d?)",
+        trig = "Vec(%d)(%d?)",
         name = "vector",
         dscr = "creates vector with length %d",
         regTrig = true,
@@ -169,14 +169,14 @@ local complex = {
             snippetType = "autosnippet",
         },
         f(function(_, snip)
-            return snip.captures[1] == "b" and "\\boldsymbol{\\bar " .. snip.captures[2] .. "}"
-                or "\\boldsymbol{" .. snip.captures[2] .. "}"
+            return snip.captures[1] == "b" and "\\mathbf{\\bar " .. snip.captures[2] .. "}"
+                or "\\mathbf{" .. snip.captures[2] .. "}"
         end, {})
     ),
     -- TODO: maybe add .* before gr, so that 2grpi could also expand to 2\pi
     s_mathonly(
         {
-            trig = "([gG][rR])(%a[%a%s])",
+            trig = "(V?)([gG][rR])(%a[etphsSiIrta%s])",
             name = "greek math text",
             dscr = "Snippet for creating greek letters",
             regTrig = true,
@@ -184,9 +184,14 @@ local complex = {
             snippetType = "autosnippet",
         },
         f(function(_, snip)
-            local letter = snip.captures[1]:lower() ~= snip.captures[1] and h.greek[snip.captures[2]:upper():gsub("%s","")]
-                or h.greek[snip.captures[2]:gsub("%s", "")]
-            return (letter ~= nil and "\\" .. letter or "rip")
+            local letter = snip.captures[2]:lower() ~= snip.captures[2] and h.greek[snip.captures[3]:upper():gsub("%s","")]
+                or h.greek[snip.captures[3]:gsub("%s", "")]
+            -- if input text is not registered as greek letter then return rip
+            if letter == nil then return "rip" end
+
+            local out = "\\" .. letter
+            out = snip.captures[1] == "V" and "\\boldsymbol{" .. out .. "}" or out
+            return out
         end, {})
     ),
     s_mathonly(
@@ -547,7 +552,10 @@ local simple_autotrig = {
     { "men", { t "\\{", i(1), t "\\}", i(2), t "" } },
     { "set", { t "\\{", i(1), t "\\}", i(2), t "" } },
     { "bul", { t "\\bullet " } },
+    { "teilt", {t "\\mid "}}
 }
+
+-- TODO: snippet for \rangle \langle
 
 local simple_autotrig_snips = {}
 

@@ -1,5 +1,5 @@
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
-    pattern = "*.md",
+    pattern = {"*.md", "*.tex"},
     callback = function()
         local status_ok, which_key = pcall(require, "which-key")
         if not status_ok then
