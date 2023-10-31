@@ -19,6 +19,7 @@ local luals_opts = require "main.lsp.settings.lua_ls"
 local jsonls_opts = require "main.lsp.settings.jsonls"
 local pyright_opts = require "main.lsp.settings.pyright"
 local jdtls_opts = require "main.lsp.settings.java_jdtls"
+local scalametals_opts = require "main.lsp.settings.scalametals"
 
 lspconfig.lua_ls.setup {
   on_attach = on_attach,
@@ -35,7 +36,7 @@ lspconfig.jsonls.setup {
 lspconfig.pyright.setup {
   on_attach = on_attach,
   capabilities = capabilities,
-  opts = pyright_opts,
+  settings = pyright_opts,
 }
 
 lspconfig.jdtls.setup {
@@ -52,4 +53,10 @@ lspconfig.gradle_ls.setup {
 lspconfig.kotlin_language_server.setup {
   on_attach = on_attach,
   capabilities = capabilities,
+}
+
+lspconfig.metals.setup{
+  on_attach = on_attach,
+  capabilities = capabilities,
+  settings = scalametals_opts
 }

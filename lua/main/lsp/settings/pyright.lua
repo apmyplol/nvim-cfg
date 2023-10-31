@@ -1,5 +1,4 @@
 return {
-	settings = {
 
     python = {
       analysis = {
@@ -7,5 +6,4 @@ return {
         venv = "venv"
       }
     },
-	}
 }
