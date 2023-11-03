@@ -18,7 +18,6 @@ local capabilities = require("main.lsp.handlers").capabilities
 local luals_opts = require "main.lsp.settings.lua_ls"
 local jsonls_opts = require "main.lsp.settings.jsonls"
 local pyright_opts = require "main.lsp.settings.pyright"
-local jdtls_opts = require "main.lsp.settings.java_jdtls"
 local scalametals_opts = require "main.lsp.settings.scalametals"
 
 lspconfig.lua_ls.setup {
@@ -39,11 +38,12 @@ lspconfig.pyright.setup {
   settings = pyright_opts,
 }
 
-lspconfig.jdtls.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  opts = jdtls_opts,
-}
+-- jdtls installed via nvim-jdtls
+-- lspconfig.jdtls.setup {
+--   on_attach = on_attach,
+--   capabilities = capabilities,
+--   opts = jdtls_opts,
+-- }
 
 lspconfig.gradle_ls.setup {
   on_attach = on_attach,

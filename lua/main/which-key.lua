@@ -85,10 +85,10 @@ local opts = {
 local mappings = {
     ["/"] = { "<cmd>lua require('Comment.api').toggle.linewise.current()<CR>", "Comment" },
     ["a"] = { "<cmd>Alpha<cr>", "Alpha" },
-    ["b"] = {
-        "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-        "Buffers",
-    },
+    -- ["b"] = {
+    --     "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+    --     "Buffers",
+    -- },
     ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
     ["w"] = { "<cmd>w!<CR>", "Save" },
     ["q"] = { "<cmd>lua require'main.keymapfunctions'.TODOLocList()<cr>", "Todo Location list" },
@@ -191,7 +191,6 @@ local mappings = {
             "reload entire nvim config"
         },
     },
-  G = {"<cmd>lua require('main.FOP').gradle()<cr>", "execute gradle task"}
 }
 
 local vopts = {
