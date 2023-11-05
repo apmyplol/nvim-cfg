@@ -4,6 +4,14 @@
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
 local workspace_dir = "/home/afa/.cache/jdtls/workspace/" .. project_name
 
+-- This bundles definition is the same as in the previous section (java-debug installation)
+local bundles = {
+    vim.fn.glob("/usr/share/java-debug/com.microsoft.java.debug.plugin*.jar", 1),
+}
+
+-- This is the new part
+vim.list_extend(bundles, vim.split(vim.fn.glob("/home/afa/Downloads/vscode-java-test/server/*.jar", 1), "\n"))
+
 return {
     -- The command that starts the language server
     -- See: https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line
@@ -65,9 +73,6 @@ return {
     --
     -- If you don't plan on using the debugger or other eclipse.jdt.ls plugins you can remove this
     init_options = {
-        bundles = {
-            vim.fn.glob("/usr/share/java-debug/com.microsoft.java.debug.plugin*.jar", 1),
-            vim.fn.glob("/home/afa/Downloads/vscode-java-test/server/*.jar", 1),
-        },
+        bundles = bundles
     },
 }
