@@ -56,7 +56,9 @@ vim.api.nvim_create_autocmd("FileType", {
         --   local widgets = require('dap.ui.widgets')
         --   widgets.centered_float(widgets.scopes)
         -- end, "bla" },
-        u = { function() require("dapui").toggle() end, "toggle DAPUI" }
+        u = { function() require("dapui").toggle() end, "toggle DAPUI" },
+        t = { function() require 'jdtls'.test_class() end, "test class" },
+        T = { function() require 'jdtls'.test_nearest_method() end, "test Nearest Method" }
       }
     }
 
@@ -68,6 +70,5 @@ vim.api.nvim_create_autocmd("FileType", {
       print "error while loading jdtls"
     end
     dapui.setup()
-
   end,
 })
