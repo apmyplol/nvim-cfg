@@ -8,6 +8,19 @@ if not status_ok then
 	return
 end
 
+local status_ok, ts_commentstring = pcall(require, "ts_context_commentstring")
+if not status_ok then
+	return
+end
+
+
+	-- plugin for commenting out based on file and language
+	ts_commentstring.setup {
+		enable = true,
+		enable_autocmd = false,
+	}
+
+
 -- treesitterps.get_parser_configs().matlab = {
 -- 	install_info = {
 -- 		url = "https://github.com/mstanciu552/tree-sitter-matlab.git",
@@ -36,12 +49,6 @@ treesitter.setup({
 		max_file_lines = nil, -- Do not enable for files with more than n lines, int
 		-- colors = {}, -- table of hex strings
 		-- termcolors = {} -- table of colour name strings
-	},
-
-	-- plugin for commenting out based on file and language
-	context_commentstring = {
-		enable = true,
-		enable_autocmd = false,
 	},
 
 	-- playground for creating themes
