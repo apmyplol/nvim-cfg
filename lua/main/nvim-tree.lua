@@ -19,7 +19,9 @@ local function my_on_attach(bufnr)
         return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
     end
 
-    vim.keymap.set("n", "<C-]>", api.tree.change_root_to_node, opts "CD")
+    vim.keymap.set("n", "o", api.tree.change_root_to_node, opts "CD")
+    vim.keymap.set("n", "O", api.tree.change_root_to_parent, opts "Up")
+
     vim.keymap.set("n", "<C-e>", api.node.open.replace_tree_buffer, opts "Open: In Place")
     vim.keymap.set("n", "<C-k>", api.node.show_info_popup, opts "Info")
     vim.keymap.set("n", "<C-r>", api.fs.rename_sub, opts "Rename: Omit Filename")
@@ -33,7 +35,6 @@ local function my_on_attach(bufnr)
     vim.keymap.set("n", ">", api.node.navigate.sibling.next, opts "Next Sibling")
     vim.keymap.set("n", "<", api.node.navigate.sibling.prev, opts "Previous Sibling")
     vim.keymap.set("n", ".", api.node.run.cmd, opts "Run Command")
-    vim.keymap.set("n", "-", api.tree.change_root_to_parent, opts "Up")
     vim.keymap.set("n", "a", api.fs.create, opts "Create")
     vim.keymap.set("n", "bd", api.marks.bulk.delete, opts "Delete Bookmarked")
     vim.keymap.set("n", "bt", api.marks.bulk.trash, opts "Trash Bookmarked")
@@ -58,8 +59,8 @@ local function my_on_attach(bufnr)
     vim.keymap.set("n", "J", api.node.navigate.sibling.last, opts "Last Sibling")
     vim.keymap.set("n", "K", api.node.navigate.sibling.first, opts "First Sibling")
     vim.keymap.set("n", "m", api.marks.toggle, opts "Toggle Bookmark")
-    vim.keymap.set("n", "o", api.node.open.edit, opts "Open")
-    vim.keymap.set("n", "O", api.node.open.no_window_picker, opts "Open: No Window Picker")
+    vim.keymap.set("n", "l", api.node.open.edit, opts "Open")
+    -- vim.keymap.set("n", "O", api.node.open.no_window_picker, opts "Open: No Window Picker")
     vim.keymap.set("n", "p", api.fs.paste, opts "Paste")
     vim.keymap.set("n", "P", api.node.navigate.parent, opts "Parent Directory")
     vim.keymap.set("n", "q", api.tree.close, opts "Close")
@@ -75,7 +76,7 @@ local function my_on_attach(bufnr)
     vim.keymap.set("n", "Y", api.fs.copy.relative_path, opts "Copy Relative Path")
     vim.keymap.set("n", "<2-LeftMouse>", api.node.open.edit, opts "Open")
     vim.keymap.set("n", "<2-RightMouse>", api.tree.change_root_to_node, opts "CD")
-    vim.keymap.set("n", "l", api.node.open.edit, opts "Edit")
+    -- vim.keymap.set("n", "l", api.node.open.edit, opts "Edit")
 end
 
 -- autostart nvim-tree
