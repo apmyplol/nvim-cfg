@@ -20,6 +20,11 @@ local jsonls_opts = require "main.lsp.settings.jsonls"
 local pyright_opts = require "main.lsp.settings.pyright"
 local scalametals_opts = require "main.lsp.settings.scalametals"
 
+lspconfig.texlab.setup{
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+
 lspconfig.lua_ls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
