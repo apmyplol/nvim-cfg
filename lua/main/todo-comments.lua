@@ -19,6 +19,10 @@ todo_comments.setup{
     WARN = { icon = " ", color = "warning", alt = { "WARNING", "XXX" } },
     PERF = { icon = " ", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
     NOTE = { icon = " ", color = "hint", alt = { "INFO" } },
+    CON = { icon = " ", color = "hint" },
+    QUES = {icon = "", color="warning"},
+    MA = {icon = "󰿈", color="error"},
+    ZI = {icon = "", color="default"}
   },
   merge_keywords = true, -- when true, custom keywords will be merged with the defaults
   -- highlighting of the line containing the todo comment

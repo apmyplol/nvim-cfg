@@ -1,25 +1,22 @@
 local g = vim.g
-vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
-    pattern = { "*.tex" },
-    callback = function()
-        local status_ok, which_key = pcall(require, "which-key")
-        if not status_ok then
-            return
-        end
-        which_key.add {
+local status_ok, which_key = pcall(require, "which-key")
+if not status_ok then
+    return
+end
+which_key.add {
 
-            {
-                "<leader>t",
-                "<plug>(vimtex-toc-toggle)",
-                desc = "vimtex TOC toggle",
-                nowait = true,
-                remap = false,
-            },
-        }
-    end,
-})
+    {
+        "<leader>t",
+        "<plug>(vimtex-toc-toggle)",
+        desc = "vimtex TOC toggle",
+        nowait = true,
+        remap = false,
+    },
+}
 g.tex_flavor = "latex"
-g.vimtex_view_method = "zathura"
+g.vimtex_view_method = "zathura_simple"
+g.latex_view_general_viewer = "zathura"
+g.vimtex_compiler_progname = "nvr"
 g.vimtex_fold_enabled = 1
 g.vimtex_quickfix_mode = 0
 g.tex_conceal = "abdmg"

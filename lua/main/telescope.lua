@@ -12,7 +12,7 @@ local actions = require "telescope.actions"
 
 telescope.setup {
     defaults = {
-        file_ignore_patterns = { "obsidian/" },
+        file_ignore_patterns = { "obsidian/", ".git/", ".aux/" },
 
         prompt_prefix = " ",
         selection_caret = " ",

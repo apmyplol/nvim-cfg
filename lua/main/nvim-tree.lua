@@ -131,7 +131,7 @@ nvim_tree.setup {
         args = {},
     },
     git = {
-        enable = true,
+        enable = false,
         ignore = true,
         show_on_dirs = true,
         show_on_open_dirs = true,

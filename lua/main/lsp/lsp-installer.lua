@@ -19,16 +19,17 @@ local luals_opts = require "main.lsp.settings.lua_ls"
 local jsonls_opts = require "main.lsp.settings.jsonls"
 local pyright_opts = require "main.lsp.settings.pyright"
 local scalametals_opts = require "main.lsp.settings.scalametals"
+local ltex_opts = require "main.lsp.settings.ltex"
 
 lspconfig.texlab.setup{
   on_attach = on_attach,
   capabilities = capabilities,
 }
 
-lspconfig.vale_ls.setup{
-  on_attach = on_attach,
-  capabilities = capabilities,
-}
+-- lspconfig.vale_ls.setup{
+--   on_attach = on_attach,
+--   capabilities = capabilities,
+-- }
 
 lspconfig.lua_ls.setup {
   on_attach = on_attach,
@@ -40,6 +41,14 @@ lspconfig.jsonls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
   opts = jsonls_opts,
+}
+
+lspconfig.ltex.setup{
+  on_attach = on_attach,
+  capabilities = capabilities,
+  cmd = { "/home/afa/Downloads/ltex-ls-plus-18.4.0/bin/ltex-ls-plus" },
+  settings = ltex_opts
+
 }
 
 lspconfig.pyright.setup {

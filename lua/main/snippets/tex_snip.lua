@@ -170,7 +170,7 @@ local complex = {
         },
         f(function(_, snip)
             return snip.captures[1] == "b" and "\\mathbf{\\bar " .. snip.captures[2] .. "}"
-                or "\\mathbf{" .. snip.captures[2] .. "}"
+                or "\\ve{" .. snip.captures[2] .. "}"
         end, {})
     ),
     -- TODO: maybe add .* before gr, so that 2grpi could also expand to 2\pi
