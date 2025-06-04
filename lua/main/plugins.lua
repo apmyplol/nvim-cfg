@@ -177,9 +177,11 @@ return packer.startup(function(use)
     use "/home/afa/.config/nvim/my_plugins/obsidian"
 
     -- java stuff
-    use 'mfussenegger/nvim-jdtls'
-    use 'mfussenegger/nvim-dap'
-    use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
+    -- use 'mfussenegger/nvim-jdtls'
+    -- use 'mfussenegger/nvim-dap'
+    -- use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
+
+    use {"barreiroleo/ltex-extra.nvim"}
 
     if PACKER_BOOTSTRAP then
         require("packer").sync()

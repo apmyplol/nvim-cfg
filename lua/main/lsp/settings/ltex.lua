@@ -1,5 +1,9 @@
 return {
     ltex = {
-        language = "en-GB",
+        language = "en-US",
+        additionalRules = {
+            enablePickyRules = true,
+            motherTongue = "de-DE",
+        },
     },
 }
