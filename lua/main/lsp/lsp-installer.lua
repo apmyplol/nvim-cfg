@@ -1,62 +1,69 @@
 local status_ok, mason = pcall(require, "mason")
 if not status_ok then
-    return
+  return
 end
 
 mason.setup()
 
 require("mason-lspconfig").setup()
 
-local status_ok, lspconfig = pcall(require, "lspconfig")
-if not status_ok then
-    return
+
+local function my_root_dir(bufnr, on_dir)
+  -- The project root is where the LSP can be started from
+  local root_markers = { 'deno.lock' }
+  -- Give the root markers equal priority by wrapping them in a table
+  root_markers = vim.fn.has('nvim-0.11.3') == 1 and { root_markers, { '.git' } }
+    or vim.list_extend(root_markers, { '.git' })
+  -- exclude non-deno projects (npm, yarn, pnpm, bun)
+  -- local non_deno_path = vim.fs.root(
+  --   bufnr,
+  --   { 'package.json', 'package-lock.json', 'yarn.lock', 'pnpm-lock.yaml', 'bun.lockb', 'bun.lock' }
+  -- )
+  local project_root = vim.fs.root(bufnr, root_markers)
+  -- if non_deno_path and (not project_root or #non_deno_path >= #project_root) then
+  --   return
+  -- end
+  -- We fallback to the current working directory if no project root is found
+  on_dir(project_root or vim.fn.getcwd())
 end
 
-local on_attach = require("main.lsp.handlers").on_attach
-local capabilities = require("main.lsp.handlers").capabilities
+
+vim.lsp.config("denols", {
+  root_dir = my_root_dir,
+  init_options = {
+    lint = true,
+    unstable = true,
+    enable = true,
+    suggest = {
+      imports = {
+        hosts = {
+          ["https://deno.land"] = true,
+        },
+      },
+    },
+  },
+})
 
 local luals_opts = require "main.lsp.settings.lua_ls"
 local jsonls_opts = require "main.lsp.settings.jsonls"
 local pyright_opts = require "main.lsp.settings.pyright"
-local scalametals_opts = require "main.lsp.settings.scalametals"
 local ltex_opts = require "main.lsp.settings.ltex"
 
-lspconfig.texlab.setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-}
 
--- lspconfig.vale_ls.setup{
---   on_attach = on_attach,
---   capabilities = capabilities,
--- }
-
-lspconfig.lua_ls.setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
+vim.lsp.config("lua_ls", {
     settings = luals_opts,
-}
+})
 
-lspconfig.jsonls.setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
+vim.lsp.config("jsonls", {
     opts = jsonls_opts,
-}
+})
 
-lspconfig.ltex.setup {
-    capabilities = capabilities,
+vim.lsp.config("ltex", {
     cmd = { "/home/afa/Downloads/ltex-ls-plus-18.4.0/bin/ltex-ls-plus" },
     settings = ltex_opts,
-    on_attach = function(client, bufnr)
-        -- rest of your on_attach process.
-        require("ltex_extra").setup { load_langs = { "en-GB" } }
-        on_attach(client, bufnr)
-    end,
-}
+})
 
-lspconfig.harper_ls.setup {
-    capabilities = capabilities,
-    on_attach = on_attach,
+vim.lsp.config("harper_ls", {
     filetypes = {
         "c",
         "cpp",
@@ -87,33 +94,8 @@ lspconfig.harper_ls.setup {
       userDictPath = vim.fn.stdpath("config") .. "/spell/en.utf-8.add",
     }
   }
-}
+})
 
-lspconfig.pyright.setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
+vim.lsp.config("pyright", {
     settings = pyright_opts,
-}
-
--- jdtls installed via nvim-jdtls
--- lspconfig.jdtls.setup {
---   on_attach = on_attach,
---   capabilities = capabilities,
---   opts = jdtls_opts,
--- }
-
-lspconfig.gradle_ls.setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-}
-
-lspconfig.kotlin_language_server.setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-}
-
-lspconfig.metals.setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-    settings = scalametals_opts,
-}
+})
