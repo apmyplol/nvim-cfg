@@ -176,6 +176,8 @@ return packer.startup(function(use)
 
     use "/home/afa/.config/nvim/my_plugins/obsidian"
 
+    use "pteroctopus/faster.nvim"
+
     -- java stuff
     -- use 'mfussenegger/nvim-jdtls'
     -- use 'mfussenegger/nvim-dap'
