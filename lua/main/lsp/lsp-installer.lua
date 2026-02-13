@@ -28,21 +28,21 @@ local function my_root_dir(bufnr, on_dir)
 end
 
 
-vim.lsp.config("denols", {
-  root_dir = my_root_dir,
-  init_options = {
-    lint = true,
-    unstable = true,
-    enable = true,
-    suggest = {
-      imports = {
-        hosts = {
-          ["https://deno.land"] = true,
-        },
-      },
-    },
-  },
-})
+-- vim.lsp.config("denols", {
+--   root_dir = my_root_dir,
+--   init_options = {
+--     lint = true,
+--     unstable = true,
+--     enable = true,
+--     suggest = {
+--       imports = {
+--         hosts = {
+--           ["https://deno.land"] = true,
+--         },
+--       },
+--     },
+--   },
+-- })
 
 local luals_opts = require "main.lsp.settings.lua_ls"
 local jsonls_opts = require "main.lsp.settings.jsonls"
