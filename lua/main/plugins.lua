@@ -180,8 +180,8 @@ return packer.startup(function(use)
 
     -- java stuff
     -- use 'mfussenegger/nvim-jdtls'
-    -- use 'mfussenegger/nvim-dap'
-    -- use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
+    use 'mfussenegger/nvim-dap'
+    use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"} }
 
     use {"barreiroleo/ltex-extra.nvim"}
 

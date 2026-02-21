@@ -27,12 +27,13 @@ require "main.lualine"
 --require "main.matchup"
 require "main.surround"
 -- require "main.pretty-fold"
-require "main.fold-preview"
+-- require "main.fold-preview"
 require "main.todo-comments"
 -- require "main.jupyter"
 require "main.clipboard-image"
 require "main.others"
 -- require "main.java"
+require "main.DAP"
 
 -- TODO: adjust colortheme to new lsp semantic highlights
 -- TODO: check gisigns vs vgit

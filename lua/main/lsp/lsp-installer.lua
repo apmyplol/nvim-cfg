@@ -20,7 +20,7 @@ local vue_plugin = {
   languages = { 'vue' },
   configNamespace = 'typescript',
 }
-vim.print(vue_language_server_path)
+
 vim.lsp.config('vtsls', {
   settings = {
     vtsls = {
@@ -46,39 +46,6 @@ vim.lsp.config("ltex", {
     cmd = { "/home/afa/Downloads/ltex-ls-plus-18.4.0/bin/ltex-ls-plus" },
     settings = ltex_opts,
 })
-
--- vim.lsp.config("harper_ls", {
---     filetypes = {
---         "c",
---         "cpp",
---         "cs",
---         "gitcommit",
---         "go",
---         "html",
---         "java",
---         "javascript",
---         "lua",
---         "markdown",
---         "nix",
---         "python",
---         "ruby",
---         "rust",
---         "swift",
---         "toml",
---         "typescript",
---         "typescriptreact",
---         "haskell",
---         "cmake",
---         "typst",
---         "php",
---         "dart",
---     },
---   settings = {
---     ["harper-ls"] = {
---       userDictPath = vim.fn.stdpath("config") .. "/spell/en.utf-8.add",
---     }
---   }
--- })
 
 vim.lsp.config("pyright", {
     settings = pyright_opts,
