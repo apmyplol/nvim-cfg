@@ -88,7 +88,7 @@ return packer.startup(function(use)
     use "neovim/nvim-lspconfig"
 
     -- use {"williamboman/nvim-lsp-installer", commit = "45571e107983a247e86a6047dd31a22e74a230e8"}
-    use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
+    use "nvimtools/none-ls.nvim" -- for formatters and linters
 
     use "lewis6991/gitsigns.nvim" -- for git information, added/deleted stuff and see changes while file is opened
 
@@ -109,11 +109,13 @@ return packer.startup(function(use)
     -- use {'iamcco/markdown-preview.nvim', run=":call mkdp#util#install()" , ft={'markdown'}}
     --use "plasticboy/vim-markdown"
     -- use { "vimwiki/vimwiki", ft = { "markdown", "vimwiki" } }
-    use { "ekickx/clipboard-image.nvim" }
+    -- use { "ekickx/clipboard-image.nvim" }
     -- use "ixru/nvim-markdown"
     -- use "renerocksai/telekasten.nvim"
     -- use "junegunn/goyo.vim"
     use "tanvirtin/vgit.nvim"
+
+    use "kdheepak/lazygit.nvim"
 
     -- Block and single line quotes
     use "numToStr/Comment.nvim"

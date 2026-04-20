@@ -34,6 +34,7 @@ require "main.clipboard-image"
 require "main.others"
 -- require "main.java"
 require "main.DAP"
+require "main.lsp.null-ls"
 
 -- TODO: adjust colortheme to new lsp semantic highlights
 -- TODO: check gisigns vs vgit
