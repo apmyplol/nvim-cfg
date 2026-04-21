@@ -364,7 +364,7 @@ local nbinds = {
         },
         {
             "<leader>la",
-            "<cmd>Lspsaga code_actions<cr>",
+            "<cmd>Lspsaga code_action<cr>",
             desc = "Code Action",
             nowait = true,
             remap = false,
