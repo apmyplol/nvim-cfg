@@ -87,6 +87,20 @@ return packer.startup(function(use)
     -- LSP for code completion and definitions etc
     use "neovim/nvim-lspconfig"
 
+    use {
+        "nvimdev/lspsaga.nvim",
+        config = function()
+            require("lspsaga").setup {
+                definition = {
+                    keys = {
+                        edit = "e",
+                    },
+                },
+                lightbulb = {enable = false}
+            }
+        end,
+    }
+
     -- use {"williamboman/nvim-lsp-installer", commit = "45571e107983a247e86a6047dd31a22e74a230e8"}
     use "nvimtools/none-ls.nvim" -- for formatters and linters
 
@@ -100,8 +114,8 @@ return packer.startup(function(use)
     use "akinsho/toggleterm.nvim" -- toggle terminal for nvim
 
     use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" } -- treeesitter for better syntax highlighting
-    use "p00f/nvim-ts-rainbow" -- color for parenthesis
-    use "nvim-treesitter/playground" -- for developing color scheeemeee yeee
+    -- use "p00f/nvim-ts-rainbow" -- color for parenthesis
+    -- use "nvim-treesitter/playground" -- for developing color scheeemeee yeee
     use "folke/tokyonight.nvim"
     use "navarasu/onedark.nvim"
 
@@ -182,10 +196,10 @@ return packer.startup(function(use)
 
     -- java stuff
     -- use 'mfussenegger/nvim-jdtls'
-    use 'mfussenegger/nvim-dap'
-    use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"} }
+    use "mfussenegger/nvim-dap"
+    use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } }
 
-    use {"barreiroleo/ltex-extra.nvim"}
+    use { "barreiroleo/ltex-extra.nvim" }
 
     if PACKER_BOOTSTRAP then
         require("packer").sync()

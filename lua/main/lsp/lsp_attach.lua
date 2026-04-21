@@ -15,12 +15,11 @@ vim.api.nvim_create_autocmd('LspAttach', {
     }
 
     local mappings = {
-      h = { function() vim.lsp.buf.hover() end, "LSP Hover" },
+      h = { "<cmd>Lspsaga hover_doc<cr>", "LSP Hover" },
       g = {
-        D = { function() vim.lsp.buf.declaration() end, "Goto declaration" },
-        d = { function() vim.lsp.buf.definition() end, "Goto definition" },
-        i = { function() vim.lsp.buf.implementation() end, "Goto implementation" },
-        r = { function() vim.lsp.buf.references() end, "Goto references" }
+        d = {"<cmd>Lspsaga peek_definition<CR>" , "peek definiton" },
+        i = { "<cmd>Lspsaga finder imp<cr>", "search implementations" },
+        r = { "<cmd>Lspsaga finder<CR>", "search references" }
 
       }
     }
