@@ -96,7 +96,7 @@ return packer.startup(function(use)
                         edit = "e",
                     },
                 },
-                lightbulb = {enable = false}
+                lightbulb = { enable = false },
             }
         end,
     }
@@ -161,13 +161,13 @@ return packer.startup(function(use)
 
     -- for nice folding
     use "anuvyklack/pretty-fold.nvim"
-    use {
-        "anuvyklack/fold-preview.nvim",
-        requires = "anuvyklack/keymap-amend.nvim",
-        config = function()
-            require("fold-preview").setup()
-        end,
-    }
+    -- use {
+    --     "anuvyklack/fold-preview.nvim",
+    --     requires = "anuvyklack/keymap-amend.nvim",
+    --     config = function()
+    --         require("fold-preview").setup()
+    --     end,
+    -- }
 
     -- workspaces
     use "apmyplol/workspaces.nvim"
@@ -200,6 +200,19 @@ return packer.startup(function(use)
     use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } }
 
     use { "barreiroleo/ltex-extra.nvim" }
+
+    use {
+        "ibhagwan/fzf-lua",
+        -- optional for icon support
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+        -- or if using mini.icons/mini.nvim
+        -- dependencies = { "nvim-mini/mini.icons" },
+        ---@module "fzf-lua"
+        ---@type fzf-lua.Config|{}
+        ---@diagnostic disable: missing-fields
+        opts = {},
+        ---@diagnostic enable: missing-fields
+    }
 
     if PACKER_BOOTSTRAP then
         require("packer").sync()
