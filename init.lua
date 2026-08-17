@@ -22,7 +22,17 @@ require "mini.pick".setup()
 require "mini.icons".setup()
 require "mini.tabline".setup()
 require "mini.cmdline".setup()
-require "mini.files".setup()
+require "mini.files".setup({
+  mappings = {
+    go_out = "ö",
+    go_out_plus = "Ö",
+    synchronize = "w"
+  },
+  windows = {
+    preview = true,
+    width_preview = 50
+  }
+})
 require "mini-settings.highlight"
 require "mini.bufremove".setup()
 require "mini.comment".setup()
